@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Board</title>
+</head>
+<body>
+    <h1>Post a Message</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content" rows="4" cols="50"></textarea>
+        <br>
+        <input type="submit" value="Post Message">
+    </form>
+    <h2>Messages:</h2>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
